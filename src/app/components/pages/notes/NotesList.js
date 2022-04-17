@@ -19,10 +19,7 @@ const NotesList = () => {
   const [loading, setLoading] = useState(true);
 
 
-  let [completedNotesData, setCompletedNotesData] = useState([
-    { title: "vivek", description: "testing" },
-    { title: "kshitij", description: "Boy" }
-  ]);
+  let [completedNotesData, setCompletedNotesData] = useState([]);
   const [inProgress, setInProgressData] = useState([
     { title: "test", description: "Test 1" }
   ]);
@@ -56,7 +53,9 @@ const NotesList = () => {
     console.log(result);
      getData();
   } 
-  
+  useEffect(() => {
+    console.log("completedNotesData",completedNotesData);
+  }, completedNotesData);
   async function getData(){
     // Update the document title using the browser API
     const authToken = localStorage.getItem("token");
@@ -233,7 +232,7 @@ const NotesList = () => {
               (provided)=>(                
                 <>
                 {
-                  completedNotesData.map((inCompletedEle,i)=>(
+                  completedNotesData[0].map((inCompletedEle,i)=>(
                   <div
                   className={classes.card}
                   ref={provided.innerRef}
