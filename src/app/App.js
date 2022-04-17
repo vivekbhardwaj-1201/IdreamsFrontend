@@ -105,7 +105,7 @@ function App() {
 						 <Route path="/register" element={!isLoggedIn ? <Register onRegister={registerHandler} /> : <Navigate to="/" />} />
 						{/*<Route path="/profile" element={isLoggedIn ? <Profile /> : <Navigate to="/" />} />
 						<Route path="/notes" element={isLoggedIn ? <NotesList /> : <Navigate to="/" />} /> */}
-						<Route path="/" element={isLoggedIn ? <Home onAddNote={notesHandler} /> : <Login onLogin={loginHandler} />} exact />
+						<Route path="/" element={isLoggedIn ? <Home onAddNote={notesHandler} onLogout={logoutHandler} /> : <Login onLogin={loginHandler} />} exact />
 					</Routes>
 				</main>
 			</Router>

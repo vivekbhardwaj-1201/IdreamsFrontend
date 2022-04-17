@@ -1,59 +1,64 @@
 .notes-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
 .note-item {
-    width: 90%;
-    max-width: 60rem;
-    margin: 2rem auto;
-    padding: 2rem;
-	background: #014d80;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-	color: white;
-	padding: 1rem 2rem;
+  width: 90%;
+  max-width: 60rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #014d80;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  color: white;
+  padding: 1rem 2rem;
 }
-.collapse{
-	background: #80a0b6;
-	border: 1px solid white;
+
+.collapse {
+  background: #80a0b6;
+  border: 1px solid white;
 }
-.del-btn{
-	background: #d30606;
-    border: 1px solid #d30606;
-	padding:  0.5rem 1rem;
-	float: right;
+
+.del-btn {
+  background: #d30606;
+  border: 1px solid #d30606;
+  padding: 0.5rem 1rem;
+  float: right;
 }
 
 .del-btn:hover,
-  .del-btn:active {
-    background: #b90606;
-    border-color: #b90606;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
-  }
+.del-btn:active {
+  background: #b90606;
+  border-color: #b90606;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+}
 
+.control {
+  margin: 1rem 0;
+  display: grid;
+  align-items: center;
+  flex-direction: row;
+}
+
+.control input,
+.control textarea {
+  flex: 4;
+  font: inherit;
+  padding: 0.35rem 0.35rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.control input:focus,
+.control textarea:focus {
+  outline: none;
+}
+
+@media (min-width: 768px) {
   .control {
-    margin: 1rem 0;
-    display: grid;
     align-items: center;
     flex-direction: row;
   }
-  .control input , .control textarea{
-    flex: 4;
-    font: inherit;
-    padding: 0.35rem 0.35rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-  
-  .control input:focus, .control textarea:focus{
-    outline: none;
-  } 
 
-  @media (min-width: 768px) {
-    .control {
-      align-items: center;
-      flex-direction: row;
-    }
-  
-  }
-  
+}

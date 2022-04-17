@@ -22,11 +22,10 @@ const Navigation = (props) => {
             </ul>
             <ul className={classes.footer}>
               <li className={classes.menuItem}>Settings</li>
-              <li className={classes.menuItem} >Log Out</li>
+              <li className={classes.menuItem} onClick={props.onLogout} >Log Out</li>
             </ul>
           </div>
         </div>
-
       </div>
   );
 };
