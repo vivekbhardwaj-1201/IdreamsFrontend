@@ -17,7 +17,7 @@ const NotesList = () => {
   const [title, setTitle] = useState("");
   const [descp, setDescription] = useState("");
   const [loading, setLoading] = useState(true);
-
+  const [change, setChange] = useState(false);
 
   let [completedNotesData, setCompletedNotesData] = useState([]);
   const [inProgress, setInProgressData] = useState([
@@ -31,6 +31,12 @@ const NotesList = () => {
     setDescription(event.target.value);
     console.log("description", descp);
   }
+
+  useEffect(() => {
+    console.log("fetching data");
+    getData();
+  },[change]);
+
   const addData = async () => {
     let obj = {
       title: title,
@@ -46,16 +52,19 @@ const NotesList = () => {
 		{headers: { authorization: `Bearer ${authToken}`}});
     if(result.data.isSuccess){
       toast.success(result.data.message);
+      setChange(prev => !prev);
     }
     else{
       toast.error(result.data.message);
     }
     console.log(result);
-     getData();
+    //  getData();`
   } 
   useEffect(() => {
     console.log("completedNotesData",completedNotesData);
-  }, completedNotesData);
+  }, [completedNotesData]);
+
+
   async function getData(){
     // Update the document title using the browser API
     const authToken = localStorage.getItem("token");
@@ -64,7 +73,8 @@ const NotesList = () => {
 		{headers: { authorization: `Bearer ${authToken}`}});
     console.log(result);
     if(result.data.isSuccess){
-      setCompletedNotesData(completedNotesData => [...completedNotesData, result.data.Data.notes])
+      // setCompletedNotesData(completedNotesData => [...completedNotesData, result.data.Data.notes])
+      setCompletedNotesData(result.data.Data.notes);
       console.log(result.data.Data.notes);
       completedNotesData = result.data.Data.notes;
       console.log("response",completedNotesData.length);
@@ -232,7 +242,7 @@ const NotesList = () => {
               (provided)=>(                
                 <>
                 {
-                  completedNotesData[0].map((inCompletedEle,i)=>(
+                  completedNotesData.map((inCompletedEle,i)=>(
                   <div
                   className={classes.card}
                   ref={provided.innerRef}

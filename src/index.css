@@ -113,7 +113,7 @@ body {
   padding: 10px;
   color: #e1e9f0;
   cursor: pointer;
-  font-family: "ns-semibold";
+  /* font-family: "ns-semibold"; */
 }
 
 .secondary-btn {
@@ -128,7 +128,7 @@ body {
 }
 
 .dark-btn {
-  font-family: "ns-semibold";
+  /* font-family: "ns-semibold"; */
   font-size: 16px;
   border: none;
   background: #404040;
@@ -142,7 +142,7 @@ body {
 }
 
 .dark-btn-outline {
-  font-family: "ns-semibold";
+  /* font-family: "ns-semibold"; */
   font-size: 16px;
   border: 1px solid #404040;
   background: transparent;
@@ -211,7 +211,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: "ns-semibold";
+  /* font-family: "ns-semibold"; */
   font-size: 16px;
   padding-bottom: 20px;
   border-bottom: 1px solid #ededed;
@@ -231,7 +231,7 @@ body {
 }
 
 .header-left {
-  font-family: "ns-bold";
+  /* font-family: "ns-bold"; */
   font-size: 20px;
 }
 
