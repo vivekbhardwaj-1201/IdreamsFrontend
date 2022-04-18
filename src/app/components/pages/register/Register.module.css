@@ -1,8 +1,11 @@
 .register {
-width: 90%;
-max-width: 40rem;
-margin: 2rem auto;
-padding: 2rem;
+    width: 90%;
+    max-width: 40rem;
+    margin:20vh auto;
+    padding: 20px;
+    height: 100%;
+    max-height: 410px;
+    border-radius: 10px;
 }
 
 .control {
@@ -44,8 +47,40 @@ background: #fbdada;
 }
 
 .actions {
-text-align: center;
-}
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+.btn:disabled{
+    background: #88aaf3;
+    cursor: auto;
+  }
+  .btn{
+    background: #3f77ee;
+    color: white;
+    width: 100%;
+    max-width: 250px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  
+  
+  }
+  .btnClear{
+    background: transparent;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  
+  }
 
 @media (min-width: 768px) {
 .control {

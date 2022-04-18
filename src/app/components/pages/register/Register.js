@@ -2,6 +2,7 @@ import classes from "./Register.module.css";
 import Button from "../../common/UI/Button/Button";
 import Card from "../../common/UI/Card/Card";
 import { useEffect, useReducer, useState, useRef } from "react";
+import {useNavigate} from 'react-router-dom'
 
 const emailReducer = (state, action) => {
 	if (action.type === "INPUT") {
@@ -35,6 +36,8 @@ const phoneReducer = (state, action) => {
 };
 
 const Register = (props) => {
+	const navigate = useNavigate();
+
 	const [formIsValid, setFormIsValid] = useState(false);
 	const [emailState, emailDispacher] = useReducer(emailReducer, { value: "", isValid: null });
 	const [passState, passDispacher] = useReducer(passReducer, { value: "", isValid: null });
@@ -94,6 +97,7 @@ const Register = (props) => {
 
 	return (
 		<Card className={classes.register}>
+			 <h2 style={{textAlign:'center'}}>Create A New Account</h2>
 			<form onSubmit={submitHandler}>
 				<div className={classes.control}>
 					<label htmlFor="fname">First Name</label>
@@ -116,9 +120,8 @@ const Register = (props) => {
 					<input type="password" id="password" value={passState.value} onChange={passwordChangeHandler} onBlur={validatePasswordHandler} />
 				</div>
 				<div className={classes.actions}>
-					<Button type="submit" className={classes.btn} disabled={!formIsValid}>
-						Sign Up
-					</Button>
+					<button type="submit" className={classes.btn}   disabled={!formIsValid}>Register</button>
+					<button type="submit"  onClick={()=>navigate("/")} className={classes.btnClear}>Login</button>
 				</div>
 			</form>
 		</Card>

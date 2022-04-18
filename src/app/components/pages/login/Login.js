@@ -3,6 +3,8 @@ import React, { useEffect, useReducer, useState } from 'react';
 import Card from '../../common/UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../../common/UI/Button/Button';
+import {useNavigate} from 'react-router-dom'
+
 
 const emailReducer = (state , action ) => {
   if(action.type === 'INPUT'){
@@ -25,6 +27,8 @@ const passReducer = (state, action ) =>{
 }
 
 const Login = (props) => {
+  const navigate = useNavigate();
+
   const [formIsValid, setFormIsValid] = useState(false);
   const [emailState, emailDispacher] = useReducer(emailReducer, { value: '', isValid: null});
   const [passState, passDispacher] = useReducer(passReducer , { value: '', isValid: null});
@@ -65,6 +69,7 @@ const Login = (props) => {
   
   return (
     <Card className={classes.login}>
+      <h2 style={{textAlign:'center'}}>Welcome Back!</h2>
       <form onSubmit={submitHandler}>
         <div
           className={`${classes.control} ${
@@ -95,9 +100,8 @@ const Login = (props) => {
           />
         </div>
         <div className={classes.actions}>
-          <Button type="submit" className={classes.btn} disabled={!formIsValid}>
-            Login
-          </Button>
+          <button type="submit" className={classes.btn} disabled={!formIsValid}>Login</button>
+          <button type="submit" className={classes.btnClear} onClick={()=>navigate("/register")}>Register</button>
         </div>
       </form>
     </Card>
